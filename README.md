@@ -1,10 +1,60 @@
-# House-price-prediction
+# 🏠 House Price Prediction App
 
-This code implements a Multiple Linear Regression model using scikit-learn and deploys it via a Flask web application. It predicts house prices (or similar values) based on two features: Square Footage (Area) and Number of Rooms.Here is a structured README file you can use for this project.House Price Predictor: Flask & Scikit-LearnA lightweight web application that demonstrates a Machine Learning pipeline—from model training to deployment. The app uses a Multiple Linear Regression model to predict values based on user-provided input.🚀 FeaturesMachine Learning Backend: Uses scikit-learn to perform linear regression on a multi-dimensional dataset.Web Interface: A simple Flask-based UI for users to input data and receive real-time predictions.Dynamic Routing: Handles both GET and POST requests to process data within a single route.🛠️ Technology StackComponentTechnologyLanguagePython 3.xML FrameworkScikit-learn, NumPyWeb FrameworkFlaskFrontendHTML (Jinja2 Templates)📖 How It Works1. The ModelThe model is trained on a small, hardcoded dataset representing house features:Features ($x$): Square footage and Number of rooms.Target ($y$): Price/Value.The relationship is defined by the linear equation:$$y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \epsilon$$2. Flask IntegrationThe model.fit(x, y) function runs when the script starts, training the model in memory.When a user submits the form in index.html, the POST method captures the area and rooms.The model calls model.predict() on the new inputs and returns a rounded result.💻 Setup & InstallationClone the repository:Bashgit clone https://github.com/yourusername/house-price-predictor.git
-cd house-price-predictor
-Install dependencies:Bashpip install numpy scikit-learn flask
-Project Structure:Ensure your directory looks like this:Plaintext├── app.py          # The Python code provided
-└── templates/
-    └── index.html  # Your HTML form file
-Run the app:Bashpython app.py
-The app will be available at http://127.0.0.1:5000/.📝 Usage NoteTo make this code functional, ensure your index.html contains a form with name="area" and name="rooms" input fields, and a placeholder to display {{ prediction }}.Warning: This model is trained on a very small dataset (5 samples) for demonstration purposes. For production use, consider using a larger dataset and scaling your features.
+A simple web application that utilizes **Multiple Linear Regression** to predict house prices based on physical attributes. This project demonstrates how to integrate a **Scikit-Learn** model into a **Flask** web environment.
+
+
+
+---
+
+## 📖 Overview
+
+The application takes two primary inputs to estimate a property's value:
+1.  **Square Footage (Area)**: The size of the house in sq. ft.
+2.  **Number of Rooms**: The total count of rooms in the house.
+
+The backend uses a trained linear model to process these inputs and return a rounded prediction to the user interface.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Backend:** [Python](https://www.python.org/)
+* **Web Framework:** [Flask](https://flask.palletsprojects.com/)
+* **Machine Learning:** [Scikit-Learn](https://scikit-learn.org/)
+* **Data Manipulation:** [NumPy](https://numpy.org/)
+
+---
+
+## 🧮 How the Model Works
+
+The model is built on the principle of **Multiple Linear Regression**, which maps the relationship between multiple independent variables and one dependent variable.
+
+The prediction logic follows this formula:
+
+$$y = \beta_0 + \beta_1x_1 + \beta_2x_2 + \epsilon$$
+
+Where:
+* $y$ = Predicted Price
+* $x_1$ = Area
+* $x_2$ = Number of Rooms
+* $\beta_n$ = Coefficients learned during training
+
+### Training Data
+The model is pre-trained on the following sample set:
+
+| Area ($x_1$) | Rooms ($x_2$) | Price ($y$) |
+| :--- | :--- | :--- |
+| 800 | 1 | 30 |
+| 1000 | 2 | 40 |
+| 1200 | 2 | 45 |
+| 1500 | 2 | 60 |
+| 1800 | 3 | 72 |
+
+---
+
+## 🚀 Getting Started
+
+### 1. Prerequisites
+Ensure you have Python installed. You will also need to install the following packages:
+```bash
+pip install flask numpy scikit-learn
